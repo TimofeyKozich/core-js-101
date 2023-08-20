@@ -227,21 +227,21 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  let newStr = ''
-  for(let i = 0; i < str.length; i++){
-    let temp = +str.charCodeAt(i)
-    if(temp >= 65 && temp <= 77){
-      newStr += String.fromCharCode(temp + 13)
-    }else if(temp >= 97 && temp <= 109){
-      newStr += String.fromCharCode(temp + 13)
-    }else if(temp >= 78 && temp <= 90){
-      newStr += String.fromCharCode(temp - 13)
-    }else if(temp >= 110 && temp <= 122){
-      newStr += String.fromCharCode(temp - 13)
-    }else{
+  let newStr = '';
+  for (let i = 0; i < str.length; i += 1) {
+    const temp = +str.charCodeAt(i);
+    if (temp >= 65 && temp <= 77) {
+      newStr += String.fromCharCode(temp + 13);
+    } else if (temp >= 97 && temp <= 109) {
+      newStr += String.fromCharCode(temp + 13);
+    } else if (temp >= 78 && temp <= 90) {
+      newStr += String.fromCharCode(temp - 13);
+    } else if (temp >= 110 && temp <= 122) {
+      newStr += String.fromCharCode(temp - 13);
+    } else {
       newStr += str[i];
     }
-  };
+  }
   return newStr;
 }
 
@@ -259,8 +259,8 @@ function encodeToRot13(str) {
  *   isString(new String('test')) => true
  */
 function isString(value) {
-  if(typeof(value) === 'string') return true;
-  if(typeof(value) === 'object') return value instanceof String;
+  if (typeof (value) === 'string') return true;
+  if (typeof (value) === 'object') return value instanceof String;
   return false;
 }
 
@@ -290,7 +290,7 @@ function isString(value) {
  *   'K♠' => 51
  */
 function getCardId(value) {
-  const card = ['A♣','2♣','3♣','4♣','5♣','6♣','7♣','8♣','9♣','10♣','J♣','Q♣','K♣','A♦','2♦','3♦','4♦','5♦','6♦','7♦','8♦','9♦','10♦','J♦','Q♦','K♦','A♥','2♥','3♥','4♥','5♥','6♥','7♥','8♥','9♥','10♥','J♥','Q♥','K♥','A♠','2♠','3♠','4♠','5♠','6♠','7♠','8♠','9♠','10♠','J♠','Q♠','K♠'];
+  const card = ['A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣', 'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦', 'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥', 'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠'];
   return card.indexOf(value);
 }
 
